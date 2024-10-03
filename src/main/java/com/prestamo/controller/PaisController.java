@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.prestamo.entity.Pais;
 import com.prestamo.service.PaisService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @RestController
@@ -22,4 +25,10 @@ public class PaisController {
 	public List<Pais> getAllPaises(){
 		return paisService.findAll();
 	}
+	
+	@PostMapping("/inserta")
+	public Pais insertaPais(@RequestBody Pais pais) {
+		return paisService.insertaPais(pais);
+	}
+	
 }
